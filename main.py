@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import gradio as gr
+import PIL.Image
 import tensorflow as tf
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -10,6 +12,8 @@ from sklearn.preprocessing import LabelEncoder
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, BatchNormalization, Dropout
+
+
 
 # Load the CSV files
 train_annotations_path = r"C:\Users\abdel\PycharmProjects\Apple Detection\Dataset\csv files\train_annotations.csv"
@@ -109,9 +113,7 @@ loss, accuracy = model.evaluate(test_generator)
 print("Test Loss:", loss)
 print("Test Accuracy:", accuracy)
 
-import gradio as gr
-import PIL.Image
-
+#Gradio Interface
 def predict(image):
     # Check image type
     print(type(image))
